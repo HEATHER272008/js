@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   DESIGN TOKENS
+   ========================= */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 100% 12%;
+
+    --primary: 210 100% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 45 100% 50%;
+
+    --border: 210 30% 88%;
+    --radius: 0.75rem;
+
+    /* Custom */
+    --gold: 45 100% 50%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* =========================
+   PRELOADER ANIMATIONS
+   ========================= */
+
+@keyframes ringSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-ring-spin {
+  animation: ringSpin 2.2s linear infinite;
+
+  /* visual break so spin is visible */
+  border-top-color: hsl(var(--gold));
+  border-right-color: transparent;
+  border-bottom-color: rgba(255, 255, 255, 0.35);
+  border-left-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Logo entrance */
+@keyframes logoIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-logo-in {
+  animation: logoIn 1.3s ease-out forwards;
+}
+
+/* Logo breathing pulse */
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-logo-pulse {
+  animation: logoPulse 1.8s ease-in-out infinite;
+}
